@@ -1,0 +1,24 @@
+
+.name{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.email {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.phone{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+mat-panel-description{
+    margin-top: 10px;
+}
+   

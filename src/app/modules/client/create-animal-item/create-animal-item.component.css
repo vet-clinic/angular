@@ -1,0 +1,29 @@
+mat-card {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 220px;
+}
+mat-icon {
+  font-size: 150px;
+}
+.content {
+  padding-top: 12px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.add {
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+mat-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

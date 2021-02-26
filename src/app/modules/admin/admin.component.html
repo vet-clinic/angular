@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="button-row">
+        <button mat-raised-button color="basic" routerLink="/admin/incoming-appointments" routerLinkActive="raised-btn">
+            Incoming appointments
+        </button>
+        <button mat-raised-button color="basic" routerLink="/admin/schedule"
+            routerLinkActive="raised-btn">Schedule</button>
+        <button mat-raised-button color="basic" routerLink="/admin/create-doctor" routerLinkActive="raised-btn">            
+            Add doctor
+        </button>
+        <button mat-raised-button color="basic" routerLink="/admin/procedures" routerLinkActive="raised-btn">Procedures</button>
+        <button mat-raised-button color="basic" routerLink="/admin/services" routerLinkActive="raised-btn">Services
+        </button>
+        <button mat-raised-button color="basic" routerLink="/admin/clients" routerLinkActive="raised-btn">Clients</button>
+    </div>
+    <div class="router-container">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

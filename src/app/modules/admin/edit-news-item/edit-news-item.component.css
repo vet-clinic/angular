@@ -1,0 +1,40 @@
+.edit-news-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    padding: 20px;
+    width: 680px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.column {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 297px;
+    padding: 20px;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.actions button {
+    margin-right: 10px;
+}

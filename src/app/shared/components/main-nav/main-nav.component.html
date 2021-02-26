@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport='false'
+      [ngClass] = "{hidden: (isHandset$ | async) === false}"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]='["/services"]'>Services</a>
+      <a mat-list-item [routerLink]='["/doctor/list"]'>Doctors</a>
+      <a mat-list-item  [routerLink]='["/"]'>Contacts</a>
+      <a mat-list-item *ngIf ='!authService.isLogedIn()' (click)="authService.login()">Login</a>
+      <a mat-list-item *ngIf ='!authService.isLogedIn()' [routerLink]='["create-client"]'>Register</a>
+      <a mat-list-item *ngIf ='authService.isLogedIn()' (click)="moveToCabinet()">My Cabinet</a>
+      <a mat-list-item *ngIf ='authService.isLogedIn()'(click)="authService.logout()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div class="toolbar container">
+      <button class="toolbar_icon"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon class="menu_icon" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div>
+        <a class="navbar-brand" [routerLink]='["/"]'>
+         <img id='logo' [src]="imagePath" alt="logo">
+       </a>
+       </div >
+      <div *ngIf="!(isHandset$ | async)">
+        <a [routerLink]='["/services"]'>Services</a>
+        <a [routerLink]='["/doctor/list"]'>Doctors</a>
+        <a [routerLink]='["/"]'>Contacts</a>
+        <a [routerLink]='["/news"]'>News</a>
+      </div>
+      <span class="spacer"></span>
+      <div  *ngIf="!(isHandset$ | async)">
+          <button mat-raised-button color='warn' *ngIf ='!authService.isLogedIn()' (click)="authService.login()" class='authButtons'>Login</button>   
+          <button mat-raised-button color='warn' *ngIf ='!authService.isLogedIn()' [routerLink]='["create-client"]' class='authButtons'>Register</button>
+        <button mat-raised-button [matMenuTriggerFor]="beforeMenu" *ngIf ='authService.isLogedIn() && authService.userData != null'>
+          <mat-icon color="primary">person</mat-icon>
+          {{authService.userData['preferred_username']}}</button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="moveToCabinet()">My Cabinet</button>
+              <button mat-menu-item *ngIf ='authService.isLogedIn()'(click)="authService.logout()">Logout</button>
+            </mat-menu>
+      
+      </div>
+  </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

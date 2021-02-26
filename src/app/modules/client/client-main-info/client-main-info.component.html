@@ -1,0 +1,19 @@
+<div id="main-info-div" >
+    <mat-card >
+    <div id="mainInfoDiv">
+    
+        <p id="nameCell">{{client?.firstName}} {{client?.lastName}}</p>
+    
+        <p id="emailCell">{{client?.email}}</p>
+    
+        <p id="phoneNumberCell">{{client?.phoneNumber}}</p>
+    
+    </div>
+    <div  class="settings">
+        <button mat-mini-fab  [routerLink]='["edit-client"]'
+            class="settings_btn" aria-label="Example icon button with a heart icon" [color]='"primary"'>
+            <mat-icon >settings</mat-icon>
+        </button>        
+    </div>
+    </mat-card>
+</div>

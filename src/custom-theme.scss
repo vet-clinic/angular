@@ -1,0 +1,79 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Create a config with the default typography levels.
+$config: mat-typography-config(
+  $font-family: '"Montserrat", sans-serif;'
+);
+
+// Custom header that uses only the Material `font-size` and `font-family`.
+.unicorn-header {  
+  font-family: mat-font-family($config);
+}
+
+@include mat-core($config);
+
+$vet-clinic-green: (
+  50: #f1f8e9,
+  100: #dcedc8,
+  200: #c5e1a5,
+  300: #aed581,
+  400: #9ccc65,
+  500: #8bc34a,
+  600: #7cb342,
+  700: #689f38,
+  800: #558b2f,
+  900: #33691e,
+  A100: #ccff90,
+  A200: #b2ff59,
+  A400: #76ff03,
+  A700: #8ABC00,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$vet-clinic-client-primary: mat-palette($vet-clinic-green, A700);
+$vet-clinic-client-accent: mat-palette($mat-light-blue, 700, 500, 800);
+
+// The warn palette is optional (defaults to red).
+$vet-clinic-client-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$vet-clinic-client-theme: mat-light-theme((
+  color: (
+    primary: $vet-clinic-client-primary,
+    accent: $vet-clinic-client-accent,
+    warn: $vet-clinic-client-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($vet-clinic-client-theme);
+

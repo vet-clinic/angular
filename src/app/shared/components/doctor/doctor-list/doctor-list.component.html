@@ -1,0 +1,15 @@
+<div class="container mv20">
+    <div class="container" [ngClass]="resizeContent? 'h90vh':''">
+        <app-doctor-item *ngFor="let doctor of doctorPageResponse?.data"
+            [doctor]="doctor" [notListItem]="false"
+            [ngClass]="!isClient ? 'doctor_item' : ''"
+            (click)="onSelect(doctor)">
+        </app-doctor-item>
+    </div>
+    <div class="page_numbers">
+        <span *ngFor="let i of pagesArr" class="page_number"
+            [ngClass]="doctorPageResponse?.pageNumber==i? 'active_page':''"
+            (click)="changepage(i)">
+            {{i}}</span>
+    </div>
+</div>

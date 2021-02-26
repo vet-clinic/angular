@@ -1,0 +1,94 @@
+.animal_card {
+  position: relative;
+}
+
+h2 {
+  text-align: center;
+}
+
+.green {
+  background-color: #8abc00;
+}
+
+mat-card {
+  display: inline-block;
+  width: 150px;
+}
+
+mat-card {
+  min-height: 220px;
+}
+
+.list_item {
+  padding: 10px;
+  position: relative;
+}
+
+mat-card-title {
+  display: inline;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.img_container {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.img {
+  position: absolute;
+  width: auto;
+  height: 100%;
+  min-width: 100px;
+}
+
+mat-card-content {
+  width: auto;
+  color: #252525;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.animalName {
+  font-weight: 500;
+  font-size: 18px;
+  max-width: 100px;
+}
+
+.animalType {
+  margin-top: 10px;
+  font-size: 14px;
+  max-width: 100px;
+}
+
+.settings {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.delete_btn {
+  height: 25px;
+  width: 25px;
+}
+
+.delete_btn mat-icon {
+  font-size: 18px;
+  transform: translateY(-5px);
+}
+
+.color_white {
+  color: white;
+}

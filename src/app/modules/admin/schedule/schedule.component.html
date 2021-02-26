@@ -1,0 +1,33 @@
+<table *ngIf="doctors!=undefined
+&&dataSource!=undefined
+&&doctors.length==dataSource.length
+" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"><a [routerLink]="['/', 'doctor', element.id]">{{element.name}}</a> <a href=""></a></td>
+  </ng-container>
+
+<ng-container  matColumnDef="appointment1">
+    <th mat-header-cell *matHeaderCellDef> 1 </th>
+    <td mat-cell  *matCellDef="let element"> 
+        <div *ngIf="element.appointment1">{{element.appointment1.appointmentDate | date :'short'}} </div></td>
+</ng-container>
+<ng-container  matColumnDef="appointment2">
+    <th mat-header-cell *matHeaderCellDef> 2 </th>
+    <td mat-cell  *matCellDef="let element"> 
+        <div *ngIf="element.appointment2">{{element.appointment2.appointmentDate | date :'short'}}</div> </td>
+</ng-container>
+<ng-container  matColumnDef="appointment3">
+    <th mat-header-cell *matHeaderCellDef> 3 </th>
+    <td mat-cell  *matCellDef="let element">
+        <div *ngIf="element.appointment3">{{element.appointment3.appointmentDate | date :'short'}}</div> </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

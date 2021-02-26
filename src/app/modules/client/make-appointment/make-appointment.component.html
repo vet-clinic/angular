@@ -1,0 +1,48 @@
+<div class="appointment-container">
+    <mat-card class="container">
+        <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="column">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose animal</mat-label>
+                        <mat-select required [formControl]="animalControl" name="animal">
+                            <mat-option *ngFor="let animal of animals" [value]="animal.id">
+                                {{ animal.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose service</mat-label>
+                        <mat-select required [formControl]="serviceControl" name="service">
+                            <mat-option *ngFor="let service of services" [value]="service.id">
+                                {{ service.serviceName }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Reason for visit</mat-label>
+                        <textarea required [formControl]="complaintsControl" matInput cdkTextareaAutosize
+                                  cdkAutosizeMinRows="15"
+                                  cdkAutosizeMaxRows="20"
+                                  placeholder="Ex. My dog is sick"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="column">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose date</mat-label>
+                        <input required [formControl]="dateControl" [min]="todayDate" matInput [matDatepicker]="picker1">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+            <div class="actions">
+                <button mat-raised-button>Cancel</button>
+                <button [disabled]="appointmentForm.invalid" type="submit" mat-raised-button color="primary">Accept
+                </button>
+            </div>
+        </form>
+    </mat-card>
+</div>

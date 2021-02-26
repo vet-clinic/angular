@@ -1,0 +1,58 @@
+<div *ngFor="let appointment of appointments; let i = index" class="appointment-container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <div class="row header">
+                    <div class="header-image">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="avatar">
+                    </div>
+                    <div class="row">
+                        <mat-list role="list">
+                            <mat-list-item
+                                    role="listitem">{{ appointment?.client?.firstName }} {{ appointment?.client?.lastName }}</mat-list-item>
+                            <mat-list-item role="listitem">{{ appointment?.animal?.name }}</mat-list-item>
+                            <mat-list-item role="listitem">{{ appointment?.service?.serviceName }}</mat-list-item>
+                        </mat-list>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem">
+                                Time: {{ appointment?.appointmentDate | date:'shortTime' }}</mat-list-item>
+                            <mat-list-item role="listitem">
+                                Date: {{ appointment?.appointmentDate | date }}</mat-list-item>
+                            <mat-list-item role="listitem">
+                                Status: {{ appointment?.status?.statusName }}</mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <div class="description complains">
+                <h4>Complains:</h4>
+                {{ appointment?.complaints }}
+            </div>
+            <mat-divider></mat-divider>
+            <div class="description extra">
+                <div class="doctor">
+                    <h4>Assign doctor:</h4>
+                    <div class="doctor-select">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Choose doctor</mat-label>
+                            <mat-select required [formControl]="getFormControl(i)" name="doctor">
+                                <mat-option *ngFor="let doctor of doctors" [value]="doctor?.id">
+                                    {{ doctor?.firstName + " " + doctor?.lastName }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="actions">
+                    <button (click)="onReset(i)" type="reset" mat-raised-button>Reset</button>
+                    <button (click)="onDisapprove(i)" mat-raised-button color="warn">Disapprove</button>
+                    <button [disabled]="doctorsControlArray.controls[i].invalid" (click)="onApprove(i)"
+                            mat-raised-button
+                            color="primary">Approve
+                    </button>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

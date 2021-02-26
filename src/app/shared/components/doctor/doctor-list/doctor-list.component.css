@@ -1,0 +1,27 @@
+.mv20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.doctor_item {
+  cursor: pointer;
+}
+
+.page_numbers {
+  display: flex;
+  justify-content: center;
+}
+
+.page_number {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0 2px;
+}
+.active_page {
+  color: #8abc00;
+}
+
+.h90vh {
+  height: 87vh;
+  position: relative;
+}

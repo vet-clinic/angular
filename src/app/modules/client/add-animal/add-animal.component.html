@@ -1,0 +1,33 @@
+<div class="add-animal-container">
+    <mat-card class="container">
+        <form [formGroup]="animalGroup" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="column">
+                    <mat-form-field name="name" class="example-full-width"
+                                    ngDefaultControl>
+                        <mat-label>Animal's name</mat-label>
+                        <input [formControl]="animalNameControl" matInput placeholder="Ex. Pushok">
+                    </mat-form-field>
+                    <mat-form-field name="age" class="example-full-width"
+                                    ngDefaultControl>
+                        <mat-label>Animal's age</mat-label>
+                        <input [formControl]="animalAgeControl" matInput type="number">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose animal type</mat-label>
+                        <mat-select [formControl]="animalTypeControl" name="type">
+                            <mat-option *ngFor="let animalType of animalTypes" [value]="animalType.id">
+                                {{animalType.animalTypeName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="actions">
+                <button mat-raised-button type="reset" (click)="onNoClick()">Cancel</button>
+                <button [disabled]="animalGroup.invalid" type="submit" mat-raised-button color="primary">Accept</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

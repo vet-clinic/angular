@@ -1,0 +1,136 @@
+<div *ngIf='doctor.isDeleted' class="container deleted">
+    <span class="mat-display-1">This doctor is deleted</span>
+</div>
+
+<div *ngIf="closedInformation&&!doctor.isDeleted" class="edit_card">
+    <mat-card *ngIf="doctor">       
+        <form [formGroup]="editDoctorForm">
+            <app-doctor-validation-exception *ngIf="editDoctorForm.get(['firstName'])?.invalid 
+                && (editDoctorForm.get(['firstName'])?.dirty 
+                || editDoctorForm.get(['firstName'])?.touched)"
+                [exeption]="editDoctorForm.get(['firstName'])?.errors"
+                [name]="'First Name'">
+            </app-doctor-validation-exception>
+            <div class="form_item">           
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name:</mat-label>
+                    <input matInput type="text" formControlName="firstName">                                         
+                </mat-form-field>                
+            </div> 
+
+            <app-doctor-validation-exception 
+                *ngIf="editDoctorForm.get(['lastName'])?.invalid 
+                    && (editDoctorForm.get(['lastName'])?.dirty 
+                    || editDoctorForm.get(['lastName'])?.touched)"
+                [exeption]="editDoctorForm.get(['lastName'])?.errors"
+                [name]="'Last Name'">
+            </app-doctor-validation-exception>
+            <div class="form_item">
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name: </mat-label>
+                    <input matInput type="text" formControlName="lastName">   
+                </mat-form-field>             
+            </div> 
+
+            <app-doctor-validation-exception
+                *ngIf="editDoctorForm.get(['email'])?.invalid 
+                    && (editDoctorForm.get(['email'])?.dirty 
+                    || editDoctorForm.get(['email'])?.touched)"
+                [exeption]="editDoctorForm.get(['email'])?.errors" 
+                [name]="'Last Name'">
+                </app-doctor-validation-exception>
+            <div class="form_item">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email:</mat-label>
+                    <input matInput type="text" formControlName="email">
+                </mat-form-field>
+            </div> 
+
+            <app-doctor-validation-exception
+                *ngIf="editDoctorForm.get(['phoneNumber'])?.invalid 
+                    && (editDoctorForm.get(['phoneNumber'])?.dirty 
+                    || editDoctorForm.get(['phoneNumber'])?.touched)"
+                [exeption]="editDoctorForm.get(['phoneNumber'])?.errors" 
+                [name]="'Phone number'">
+                </app-doctor-validation-exception>                
+            <div class="form_item">
+                <mat-form-field appearance="fill">
+                    <mat-label>Phone number:</mat-label>
+                    <input matInput type="text" formControlName="phoneNumber">
+                </mat-form-field>
+            </div> 
+            <div *ngIf="authService.isInRole('admin')">
+                <app-doctor-validation-exception *ngIf="editDoctorForm.get(['positionId'])?.invalid"
+                    [exeption]="editDoctorForm.get(['positionId'])?.errors" [name]="'Position'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Position:</mat-label>
+                        <mat-select matInput formControlName="positionId">
+                            <mat-option value="" disabled>Choose position</mat-option>
+                            <mat-option *ngFor="let position of positions" [value]="position.id">
+                                {{position.positionName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <app-doctor-validation-exception *ngIf="editDoctorForm.get(['education'])?.invalid 
+                                && (editDoctorForm.get(['education'])?.dirty 
+                                || editDoctorForm.get(['education'])?.touched)"
+                [exeption]="editDoctorForm.get(['education'])?.errors"
+                [name]="'Education'">
+            </app-doctor-validation-exception>
+            <div class="form_item">
+                <mat-form-field appearance="fill">
+                    <mat-label>Education:</mat-label>
+                    <textarea matInput type="text" formControlName="education"></textarea>
+                </mat-form-field>
+            </div> 
+
+            <app-doctor-validation-exception *ngIf="editDoctorForm.get(['biography'])?.invalid 
+                                && (editDoctorForm.get(['biography'])?.dirty 
+                                || editDoctorForm.get(['biography'])?.touched)"
+                [exeption]="editDoctorForm.get(['biography'])?.errors"
+                [name]="'Biography'">
+            </app-doctor-validation-exception>
+            <div class="form_item"> 
+                <mat-form-field appearance="fill">
+                    <mat-label>Biography:</mat-label>
+                    <textarea matInput type="text" formControlName="biography"></textarea>
+                </mat-form-field>
+            </div> 
+
+            <app-doctor-validation-exception *ngIf="editDoctorForm.get(['experience'])?.invalid 
+                                && (editDoctorForm.get(['experience'])?.dirty 
+                                || editDoctorForm.get(['experience'])?.touched)"
+                [exeption]="editDoctorForm.get(['experience'])?.errors"
+                [name]="'Experience'">
+            </app-doctor-validation-exception>
+            <div class="form_item">
+                <mat-form-field appearance="fill">
+                    <mat-label>Experience:</mat-label>
+                    <textarea matInput type="text" formControlName="experience"></textarea>
+                </mat-form-field>
+            </div> 
+
+            <app-doctor-validation-exception *ngIf="editDoctorForm.get(['photo'])?.invalid 
+                                && (editDoctorForm.get(['photo'])?.dirty 
+                                || editDoctorForm.get(['photo'])?.touched)"
+                [exeption]="editDoctorForm.get(['photo'])?.errors"
+                [name]="'Photo'">
+            </app-doctor-validation-exception>
+            <div class="form_item">
+                <mat-form-field appearance="fill">
+                    <mat-label>Photo:</mat-label>
+                    <input matInput type="text" formControlName="photo">
+                </mat-form-field>
+            </div> 
+            <div class="form_buttons">
+                <button mat-raised-button [disabled]="!editDoctorForm.valid" color="primary" (click)="updateProfile()">Update Profile</button>
+                <button mat-raised-button (click)="fillProfile()">Recover data</button>
+                <button mat-raised-button color="warn" *ngIf="authService.isInRole('admin')" (click)="deleteDoctor()">Delete doctor</button>
+            </div>
+        </form>          
+    </mat-card>
+</div>

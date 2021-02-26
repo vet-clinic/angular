@@ -1,0 +1,76 @@
+<div *ngFor="let appointment of appointments; let i = index" class="appointment-container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <div class="row header">
+                    <div class="header-image">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="avatar">
+                    </div>
+                    <div class="row">
+                        <mat-list role="list">
+                            <mat-list-item
+                                    role="listitem">{{ appointment?.client?.firstName }} {{ appointment?.client?.lastName }}</mat-list-item>
+                            <mat-list-item role="listitem">{{ appointment?.animal?.name }}</mat-list-item>
+                            <mat-list-item role="listitem">{{ appointment?.service?.serviceName }}</mat-list-item>
+                        </mat-list>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem">
+                                Time: {{ appointment?.appointmentDate | date:'shortTime' }}</mat-list-item>
+                            <mat-list-item role="listitem">
+                                Date: {{ appointment?.appointmentDate | date }}</mat-list-item>
+                            <mat-list-item role="listitem">Status: {{ appointment?.status?.statusName }}</mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <div class="description complains">
+                <h4>Complains:</h4>
+                {{ appointment?.complaints }}
+            </div>
+            <mat-divider></mat-divider>
+            <div class="description extra">
+                <mat-form-field class="example-chip-list">
+                    <mat-label>Procedures</mat-label>
+                    <mat-chip-list required #chipList aria-label="Fruit selection">
+                        <mat-chip
+                                *ngFor="let procedure of selectedProcedures[i]"
+                                [selectable]="selectable"
+                                [removable]="removable"
+                                (removed)="removeProcedure(procedure, i)">
+                            {{ procedure.procedureName }}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input
+                                required
+                                placeholder="Choose procedure"
+                                #procedureInput
+                                [formControl]="getInputControl(i)"
+                                [matAutocomplete]="auto"
+                                [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="inputProcedure($event, i)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectProcedure($event, i)">
+                        <mat-option *ngFor="let procedure of filteredProcedures[i] | async" [value]="procedure">
+                            {{ procedure.procedureName }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Treatment description</mat-label>
+                    <textarea [formControl]="getTreatmentControl(i)" required matInput cdkTextareaAutosize
+                              cdkAutosizeMinRows="5"
+                              cdkAutosizeMaxRows="10"
+                              placeholder="Ex. Give the dog some tasty food"></textarea>
+                </mat-form-field>
+                <mat-divider></mat-divider>
+                <div class="actions">
+                    <button (click)="onReset(i)" mat-raised-button>Reset</button>
+                    <button [disabled]="validator(i)" (click)="onSubmit(i)" mat-raised-button color="primary">Accept
+                    </button>
+                </div>
+
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

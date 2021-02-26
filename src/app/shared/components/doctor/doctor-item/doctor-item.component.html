@@ -1,0 +1,31 @@
+<h2 *ngIf ="!doctor">Loading...</h2>
+
+<mat-card *ngIf ="doctor" class="doctor_card"
+    [ngClass]="doctor.isDeleted?'grey':''">
+    <div  class="doctor_card">
+        <div class="doctor_img_container">            
+            <img *ngIf="!doctor.photo" src="assets/img/unknownDoctor.jpg" [alt]="doctor.firstName +' '+ doctor.lastName" class="doctor_img">
+            <img *ngIf="doctor.photo" [src]="doctor?.photo" [alt]="doctor.firstName +' '+ doctor.lastName" class="doctor_img">            
+        </div>
+        <mat-card-content class="doctor_content">
+            <mat-card-title>{{doctor.firstName}} {{doctor.lastName}}</mat-card-title>
+            <mat-card-title *ngIf ='closedInformation'>{{doctor.phoneNumber}}</mat-card-title>
+            <mat-card-title *ngIf ='closedInformation'>{{doctor.email}}</mat-card-title>
+            <div class="doctor_position">{{doctor.positionName}}</div>
+            <div class="doctor_content_about">
+                <app-doctor-description-item [name]="'Education'" [description]="doctor.education"></app-doctor-description-item>
+                <app-doctor-description-item [name]="'Experience'" [description]="doctor.experience"></app-doctor-description-item>
+                <app-doctor-description-item [name]="'Biography'" [description]="doctor.biography"></app-doctor-description-item>                
+            </div>
+            <div *ngIf ='closedInformation&&!doctor.isDeleted' class="settings" (click)="goToSettings(doctor)">
+                <span class="mat-body-2"> Settings </span>
+                <button mat-mini-fab color="primary" class="settings_btn" aria-label="Example icon button with a heart icon">
+                    <mat-icon>settings</mat-icon>
+                </button>
+            </div>
+            <div *ngIf='doctor.isDeleted' class="deleted">
+                <span class="mat-display-1">This doctor is deleted</span>                
+            </div>
+          </mat-card-content>
+    </div>            
+</mat-card>

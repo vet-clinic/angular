@@ -1,0 +1,30 @@
+<div class="edit-news-container">
+    <mat-card class="container">
+        <form [formGroup]="postGroup" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="column">
+                    <mat-form-field name="title" class="example-full-width"
+                                    ngDefaultControl>
+                        <mat-label>Title</mat-label>
+                        <input [formControl]="titleControl" matInput type="text">
+                    </mat-form-field>
+                    <mat-form-field name="subtitle" class="example-full-width"
+                                    ngDefaultControl>
+                        <mat-label>Subtitle</mat-label>
+                        <input [formControl]="subtitleControl" matInput type="text">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Main text</mat-label>
+                        <input [formControl]="mainTextControl" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="actions">
+                <button mat-raised-button type="reset" (click)="onNoClick()">Cancel</button>
+                <button [disabled]="postGroup.invalid" type="submit" mat-raised-button color="primary">Accept</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
+

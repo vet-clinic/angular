@@ -1,0 +1,51 @@
+<div class="card">
+  <mat-card>
+    <h2 style="text-align: center">Financial month report</h2>
+    <div class="form_align">
+      <form novalidate [formGroup]="monthReportForm" #form="ngForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Month and Year</mat-label>
+          <input matInput name="date" [min]="minDate" [max]="maxDate" [matDatepicker]="dp" [formControl]="date">
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp
+                          startView="multi-year"
+                          (yearSelected)="chosenYearHandler($event)"
+                          (monthSelected)="chosenMonthHandler($event, dp)"
+                          panelClass="example-month-picker">
+          </mat-datepicker>
+          <mat-error *ngIf="date.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <div class="form_item">
+          <mat-form-field appearance="fill">
+            <mat-label>Rent Expense:</mat-label>
+            <input name="rentExpense" matInput placeholder="Rent Expense" [formControl]="rentExpense"
+                   (keydown)="validateNumber($event)">
+            <mat-error *ngIf="rentExpense.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form_item">
+          <mat-form-field appearance="fill">
+            <mat-label>Advertising Expense:</mat-label>
+            <input name="advertisingExpense" matInput placeholder="Advertising Expense" [formControl]="advertisingExpense"
+                   (keydown)="validateNumber($event)">
+            <mat-error *ngIf="advertisingExpense.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form_item">
+          <mat-form-field appearance="fill">
+            <mat-label>Utilities Expense:</mat-label>
+            <input name="utilitiesExpense" matInput placeholder="Utilities Expense" [formControl]="utilitiesExpense"
+                   (keydown)="validateNumber($event)">
+            <mat-error *ngIf="utilitiesExpense.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form_buttons">
+          <button  mat-raised-button color="primary" type="submit"
+           [disabled]="form.invalid || date.invalid || rentExpense.invalid || advertisingExpense.invalid
+            || utilitiesExpense.invalid" (click)="createReport(monthReportForm)">Generate report</button>
+          <button mat-raised-button color="warn" (click)="resetForm(form)">Clear</button>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

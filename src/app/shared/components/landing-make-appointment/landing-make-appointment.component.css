@@ -1,0 +1,21 @@
+mat-card{
+    height: 300px;
+    width: 595px;
+    margin: 40px auto;
+    color:white;
+    background-image: url("src/assets/img/mainMakeAppointment.jpg");
+}
+
+ul {
+    padding-left:0px;
+    height: 100%;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+}

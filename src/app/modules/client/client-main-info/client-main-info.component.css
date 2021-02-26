@@ -1,0 +1,41 @@
+#edit-button{
+    float: right;
+}
+
+#tablecell-button{
+    width: 250px;
+}
+
+#main-info-div{
+    width: 800px;
+}
+
+.settings {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#nameCell{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+#emailCell {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#phoneNumberCell{
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+
+

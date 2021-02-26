@@ -1,0 +1,82 @@
+
+.container{    
+    position: relative;
+    margin-left: 30%;
+    width: 40%;
+    height: 20%;
+}
+
+.form-button{
+    display: table-cell;
+    margin-right: 15px;
+    margin-left: 0px;
+}
+
+mat-icon{
+    margin: 10px;
+}
+
+
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+}
+  
+mat-card {
+    margin: 20px 0;
+  }
+  
+strong {
+    color: #f44336;
+  }
+  
+  form {
+    margin-top: 10px;
+  }
+  
+  .form_item {
+    width: auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  input {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+
+  }
+  
+  textarea {
+    font-family: "Montserrat", sans-serif;
+    resize: none;
+    max-height: 100px;
+    width: 100%;
+  }
+  
+  select {
+    width: 328px;
+  }
+  
+  .form_buttons button {
+    margin-right: 20px;
+  }
+  .form_buttons :last-child {
+    margin-right: 0px;
+  }
+
+  .error{
+    color: red;
+    font-weight: 400;
+    font-size: small;
+  }
+
+   button{
+   margin: 10px;
+  }
+
+
+
+
+  

@@ -1,0 +1,27 @@
+mat-label {
+    font-weight: bold;
+}
+p {
+    margin-left: 10px;
+}
+
+.procedureItem{
+    margin-top: 10px;
+}
+
+
+.procedureItem, #createButton{
+    position: relative;
+    margin-left: 20px;
+}
+
+.procedureTitle{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.deleteButton{
+    margin-right: 15px;
+}
+

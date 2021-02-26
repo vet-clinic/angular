@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 style="text-align: center; padding-top: 10px">Our Services</h1>
+  <div class="inner-container">
+    <div>
+      Our reception areas are comfortable and stocked with attractive items for your pets.
+      As well as our three consulting rooms we have modern glass-fronted kennels for pets spending
+      the day with us, an x-ray suite and prep room, a fully equipped modern operating theatre and
+      a pharmacy room. Our dental units provide facilities for all normal veterinary procedures.
+      Diagnostic and surgical facilities include x-ray, ultrasound, electrocardiography, Doppler blood
+      pressure, and a range of diagnostic endoscopes. These are explained in more detail below.
+      <br>
+      <hr>
+      <br>
+    </div>
+    <div>
+      <mat-accordion>
+        <div *ngFor="let service of services" style="margin: 10px">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <h2 class="material-icons"><mat-icon>arrow_drop_down_circle</mat-icon><span id="header">{{service.serviceName}}</span></h2>
+            </mat-expansion-panel-header>
+            <p>{{service.description}}</p>
+          </mat-expansion-panel>
+        </div>
+        <div [ngClass]="{'hide':services != null}">
+          <h2> Loading data...</h2>
+        </div>
+        <div [ngClass]="{'hide':!(services !=null && services.length == 0)}">
+          <h2>  No data.</h2>
+        </div>
+      </mat-accordion>
+    </div>
+  </div>
+
+
+</div>

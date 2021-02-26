@@ -1,0 +1,183 @@
+<div *ngIf="authService.isInRole('admin')">
+    <div  class="card">
+        <mat-card>
+            <strong>* required field</strong>            
+            <form [formGroup]="doctorForm">
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['userName'])?.invalid 
+                            && (doctorForm.get(['userName'])?.dirty 
+                            || doctorForm.get(['userName'])?.touched)"
+                    [exeption]="doctorForm.get(['userName'])?.errors"
+                    [name]="'Username'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username:</mat-label>
+                        <input matInput required type="text"                             
+                            formControlName="userName">                        
+                        </mat-form-field>
+                </div>
+        
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['password'])?.invalid 
+                            && (doctorForm.get(['password'])?.dirty 
+                            || doctorForm.get(['password'])?.touched)"
+                    [exeption]="doctorForm.get(['password'])?.errors"
+                    [name]="'Password'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password: </mat-label>
+                        <input matInput required 
+                        [type]="hide ? 'password' : 'text'"                             
+                            formControlName="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide"
+                                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['repeatedPassword'])?.invalid 
+                        && (doctorForm.get(['repeatedPassword'])?.dirty 
+                        || doctorForm.get(['repeatedPassword'])?.touched)"
+                    [exeption]="doctorForm.get(['repeatedPassword'])?.errors" [name]="'Repeat password'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Repeat password</mat-label>
+                            <input matInput required type="password"                                 
+                                formControlName="repeatedPassword">
+                    </mat-form-field>
+                </div>  
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['firstName'])?.invalid 
+                        && (doctorForm.get(['firstName'])?.dirty 
+                        || doctorForm.get(['firstName'])?.touched)"
+                    [exeption]="doctorForm.get(['firstName'])?.errors"
+                    [name]="'First Name'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>First Name:</mat-label>
+                        <input matInput required type="text" formControlName="firstName">
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['lastName'])?.invalid 
+                        && (doctorForm.get(['lastName'])?.dirty 
+                        || doctorForm.get(['lastName'])?.touched)"
+                    [exeption]="doctorForm.get(['lastName'])?.errors"
+                    [name]="'Last Name'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name: </mat-label>
+                        <input matInput required type="text" formControlName="lastName">
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['email'])?.invalid 
+                        && (doctorForm.get(['email'])?.dirty 
+                        || doctorForm.get(['email'])?.touched)"
+                    [exeption]="doctorForm.get(['email'])?.errors"
+                    [name]="'Last Name'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email:</mat-label>
+                        <input matInput type="text" formControlName="email">
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['phoneNumber'])?.invalid 
+                        && (doctorForm.get(['phoneNumber'])?.dirty 
+                        || doctorForm.get(['phoneNumber'])?.touched)"
+                    [exeption]="doctorForm.get(['phoneNumber'])?.errors"
+                    [name]="'Phone number'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone number:</mat-label>
+                        <input matInput required type="text" formControlName="phoneNumber">
+                    </mat-form-field>
+                </div>
+                
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['positionId'])?.invalid 
+                        && (doctorForm.get(['positionId'])?.dirty 
+                        || doctorForm.get(['positionId'])?.touched)"
+                    [exeption]="doctorForm.get(['positionId'])?.errors"
+                    [name]="'Position'"
+                    req>
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Position:</mat-label>
+                        <mat-select required matInput formControlName="positionId">
+                            <mat-option value="" disabled>Choose position</mat-option>
+                            <mat-option *ngFor="let position of positions" [value]="position.id">
+                                {{position.positionName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['education'])?.invalid 
+                                    && (doctorForm.get(['education'])?.dirty 
+                                    || doctorForm.get(['education'])?.touched)"
+                    [exeption]="doctorForm.get(['education'])?.errors"
+                    [name]="'Education'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Education:</mat-label>
+                        <textarea matInput type="text" formControlName="education"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['biography'])?.invalid 
+                                    && (doctorForm.get(['biography'])?.dirty 
+                                    || doctorForm.get(['biography'])?.touched)"
+                    [exeption]="doctorForm.get(['biography'])?.errors"
+                    [name]="'Biography'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Biography:</mat-label>
+                        <textarea matInput type="text" formControlName="biography"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception
+                    *ngIf="doctorForm.get(['experience'])?.invalid 
+                                    && (doctorForm.get(['experience'])?.dirty 
+                                    || doctorForm.get(['experience'])?.touched)"
+                    [exeption]="doctorForm.get(['experience'])?.errors"
+                    [name]="'Experience'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Experience:</mat-label>
+                        <textarea matInput type="text" formControlName="experience"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <app-doctor-validation-exception *ngIf="doctorForm.get(['photo'])?.invalid 
+                                    && (doctorForm.get(['photo'])?.dirty 
+                                    || doctorForm.get(['photo'])?.touched)"
+                    [exeption]="doctorForm.get(['photo'])?.errors"
+                    [name]="'Photo'">
+                </app-doctor-validation-exception>
+                <div class="form_item">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Photo:</mat-label>
+                        <input matInput type="text" formControlName="photo">
+                    </mat-form-field>
+                </div>
+                <div class="form_buttons">
+                    <button mat-raised-button [disabled]="!doctorForm.valid"
+                        color="primary" (click)="createProfile()">Create Profile
+                    </button>                
+                    <button mat-raised-button color="warn"                    
+                        (click)="cancel()">Cancel</button>                    
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

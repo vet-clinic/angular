@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('mat-confirm-dialog.css');
+@import url("notification.css");
+
+html, body { height: 100%; }
+body { margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    width:100%;
+    overflow-x:hidden;
+    overflow-y: hidden;
+}
+
+
+.add-bottom-padding{
+  padding: 10px;
+}
+
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.light_grey{
+    background-color: #F3F3F3;
+}
+
+.grey{
+    background-color: #C4C4C4;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }

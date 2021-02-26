@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <span>{{service.formData.id ? "Modify Service" : "New Service" }}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()"
+          tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form novalidate [formGroup]="myForm" class="normal-form" #form="ngForm" (submit)="onSubmit(form)">
+  <mat-grid-list cols="2" rowHeight="300px" >
+    <mat-grid-tile>
+      <div class="controlers-container">
+        <input type="hidden" name="id" [value]="service.formData.id">
+        <mat-form-field>
+          <input name="serviceName" [(ngModel)]="service.formData.serviceName"
+                 matInput placeholder="Service Name"  [formControl]="serviceNameFC">
+          <mat-error *ngIf="serviceNameFC.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field style="padding-top: 20px;">
+          <textarea class="textArea"  name="description" [(ngModel)]="service.formData.description"
+                 matInput placeholder="Service Description"  [formControl]="descriptionFC"></textarea>
+          <mat-error *ngIf="descriptionFC.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="form.invalid || serviceNameFC.invalid || descriptionFC.invalid">Submit</button>
+        <button mat-raised-button color="warn" (click)="resetForm(form)">Clear</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

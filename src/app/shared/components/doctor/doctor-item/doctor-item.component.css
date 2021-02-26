@@ -1,0 +1,84 @@
+h2 {
+  text-align: center;
+}
+
+.doctor_card {
+  min-height: 220px;
+  margin-bottom: 20px;
+}
+
+.doctor_list_item {
+  padding: 10px;
+  position: relative;
+}
+
+mat-card-title {
+  display: inline;
+  margin-right: 20px;
+}
+
+.doctor_img_container {
+  position: absolute;
+  height: 210px;
+  width: 210px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.doctor_img {
+  position: absolute;
+  width: auto;
+  height: 100%;
+  min-width: 100px;
+}
+
+mat-card-content {
+  width: auto;
+  color: #252525;
+  padding-left: 270px;
+  max-width: 900px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.doctor_position {
+  color: #252525;
+  margin: 15px 0;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.doctor_content_about {
+  display: inline;
+}
+
+.settings {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.deleted {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (max-width: 720px) {
+  mat-card-content {
+    padding-left: 20px;
+    padding-top: 270px;
+  }
+
+  mat-card-title {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .doctor_card {
+    min-height: 550px;
+  }
+  .doctor_img_container {
+    margin: 0 auto;
+  }
+}

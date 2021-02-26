@@ -1,0 +1,29 @@
+.container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.button-row button{
+  padding: 10px 24px;
+  /*float: left;*/
+  margin: 10px;
+  display: inline-block;
+}
+
+.button-row{
+  display: flex;
+  padding: 10px 24px;
+  /*position: relative;*/
+  flex-direction: row;
+  justify-content: center;
+}
+
+.router-container{
+  padding-top: 20px;
+}
+
+.raised-btn{
+  background-color: #8abc00;
+  color: white;
+}

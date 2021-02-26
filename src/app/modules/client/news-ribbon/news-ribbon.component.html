@@ -1,0 +1,12 @@
+<div class="news-item-container">
+    <mat-expansion-panel *ngIf="isAdmin" class="news-item">
+        <mat-expansion-panel-header>
+            Add news item
+        </mat-expansion-panel-header>
+        <button mat-button (click)="createPost()">Create news item</button>
+    </mat-expansion-panel>
+    <app-news-item class="news-item" *ngFor="let post of postsPageResponse?.data" 
+                [post]="post" [isAdmin]="isAdmin"
+                (deleteItemEvent)="deleteNewsItem($event)"></app-news-item>
+</div>
+

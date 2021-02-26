@@ -1,0 +1,26 @@
+<div class="container" *ngIf='authService.isLogedIn()'>
+    <mat-card>        
+        <div id="maininfo-div">
+            <h2>Client's info</h2>
+            <app-client-main-info
+                    [client]='client'>
+            </app-client-main-info>
+        </div>
+
+        <div id="animals-div">
+            <h2>Your animals</h2>
+            <app-create-animal-item (click)="openDialog()"></app-create-animal-item>
+            <app-animal-item *ngFor="let animal of animals; index as i" [animal]="animal"
+                             [activeAnimal]="activeAnimal==animal?.id"
+                             (activeAnimalid)="notActiveAnimal($event)"
+                             (changedAnimal)="changeAnimal($event)"></app-animal-item>
+        </div>
+        <mat-divider></mat-divider>
+        <div id="appointments-div">
+            <h2>Appointments</h2>
+            <app-client-appointment [animalId]="activeAnimal"></app-client-appointment>
+        </div>
+    </mat-card>
+</div>
+
+

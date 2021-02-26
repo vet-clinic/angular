@@ -1,0 +1,65 @@
+
+/* form-elements */
+form  { 
+    display: table;
+} 
+
+input{
+    margin-left: 0px;
+    margin-bottom: 15px;   
+    display: table-cell;
+} 
+
+label {
+    display: table-cell; 
+    margin: 5px; 
+    font-weight: bold;
+} 
+
+.form-group  { 
+    width: 100%;
+    margin: 30px;
+    align-content: center;
+} 
+
+/* divs */
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.container{    
+    position: relative;
+    margin-left: 30%;
+    width: 40%;
+    height: 20%;
+}
+
+/* .container > div{
+    margin: 10px;
+} */
+
+
+/* buttons */
+#register-button{
+    margin-left: 0px;
+    top: 5px;
+}
+
+#cancel-button{
+    margin-right: 0px;
+    right: 0px;
+    top: 5px;
+}
+
+/* #buttons-div{   
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+} */
+
+.form-button{
+    display: table-cell;
+    margin-right: 15px;
+    margin-left: 0px;
+}

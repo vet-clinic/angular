@@ -1,0 +1,14 @@
+.news-item-container {
+  display: flex;
+  flex-flow: column;
+}
+.news-item {
+  align-self: center;
+  align-content: space-around;
+}
+app-news-item {
+  margin-top: 20px;
+}
+mat-expansion-panel {
+  margin-top: 20px;
+}

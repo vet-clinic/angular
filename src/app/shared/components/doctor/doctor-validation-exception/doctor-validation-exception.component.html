@@ -1,0 +1,23 @@
+<div class="error_block">
+    <div *ngIf="exeption?.required">
+        {{name}} is required.
+    </div>
+    <div *ngIf="exeption?.minlength">
+        {{name}} must be at least {{exeption?.minlength.requiredLength}} characters long.
+    </div>
+    <div *ngIf="exeption?.maxlength">
+        {{name}} can have a maximum of {{exeption?.maxlength.requiredLength}} characters
+    </div>
+    <div *ngIf="exeption?.notNumber">
+        {{name}} have only numbers
+    </div>
+    <div *ngIf="exeption?.invalidPassword">
+        {{name}} must have uppercase and lowercase, number and simbol like @ or # or $
+    </div>
+    <div *ngIf="exeption?.userNameExist">
+        {{name}} already exist
+    </div>
+    <div *ngIf="exeption?.wrongPassword">
+        {{name}} unfaithful
+    </div>
+</div>

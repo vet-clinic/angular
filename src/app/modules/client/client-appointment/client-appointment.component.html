@@ -1,0 +1,62 @@
+<div *ngFor="let appointment of appointments; let i = index" class="appointment-container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <div class="row header">
+                    <div class="header-image">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="avatar">
+                    </div>
+                    <div class="row">
+                        <mat-list role="list">
+                            <mat-list-item
+                                    role="listitem">{{ appointment?.client?.firstName }} {{ appointment?.client?.lastName }}</mat-list-item>
+                            <mat-list-item role="listitem">{{ appointment?.animal?.name }}</mat-list-item>
+                            <mat-list-item role="listitem">{{ appointment?.service?.serviceName }}</mat-list-item>
+                        </mat-list>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem">
+                                Time: {{ appointment?.appointmentDate | date:'shortTime' }}</mat-list-item>
+                            <mat-list-item role="listitem">
+                                Date: {{ appointment?.appointmentDate | date }}</mat-list-item>
+                            <mat-list-item role="listitem">Status: {{ appointment?.status?.statusName }}</mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <div class="description complains">
+                <h4>Complains:</h4>
+                {{ appointment?.complaints }}
+            </div>
+            <div *ngIf="appointment?.status?.id === getStatus().Completed">
+                <mat-divider></mat-divider>
+                <div class="description treatment">
+                    <h4>Treatment:</h4>
+                    {{ appointment?.treatmentDescription }}
+                </div>
+            </div>
+            <div *ngIf="appointment?.status?.id === getStatus().Completed">
+                <mat-divider></mat-divider>
+                <div class="description extra">
+                    <div class="row procedures">
+                        <div>
+                            <h4>Procedures:</h4>
+                            <mat-chip-list *ngFor="let procedure of appointment?.performedProcedures">
+                                <mat-chip> {{ procedure?.procedureName }}</mat-chip>
+                            </mat-chip-list>
+                        </div>
+                        <div class="price">
+                            Total: <b>{{ totalPrices[i] }}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                    *ngIf="appointment?.status?.id === getStatus().Completed || appointment?.status?.id === getStatus().Approved">
+                <mat-divider></mat-divider>
+                <div class="doctor">
+                    <h4>Assigned doctor: {{ appointment?.doctor?.firstName }} {{ appointment?.doctor?.lastName }}</h4>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

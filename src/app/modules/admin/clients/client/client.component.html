@@ -1,0 +1,34 @@
+
+<!-- <div id="mainInfoDiv" >
+    <mat-card >
+    <table>
+        <caption></caption>
+        <tr>
+            <th scope="col"></th><th scope="col"></th>
+        </tr>
+        <tr class="name">
+            <td>{{client?.firstName}} {{client?.lastName}}</td>
+            <td></td>
+        </tr>
+        <tr class="email">
+            <td>{{client?.email}}</td>
+        </tr>
+        <tr class="phone">
+            <td>{{client?.phoneNumber}}</td>
+        </tr>
+    </table>
+    </mat-card>
+</div> -->
+<mat-expansion-panel class="clientItem">
+    <mat-expansion-panel-header>
+        <mat-panel-title class="name">
+            {{client?.firstName}} {{client?.lastName}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-panel-description class="email">
+         {{client?.email}}
+      </mat-panel-description>
+      <mat-panel-description class="phone">
+        {{client?.phoneNumber}}
+     </mat-panel-description>
+</mat-expansion-panel>

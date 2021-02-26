@@ -1,0 +1,33 @@
+/* for dialog pop-up */
+.btn-dialog-close{
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}
+
+.fill-remaining-space{
+  flex:1 1 auto;
+}
+
+form.normal-form{
+  margin: 10px;
+}
+
+.controlers-container{
+  width: 100%;
+}
+
+.controlers-container > *{
+  width: 100%;
+}
+
+.button-row button{
+  margin: 5px;
+}
+
+.textArea{
+  resize: none;
+  height: 150px;
+  /*border-left: 1px solid #5cb85c;*/
+}

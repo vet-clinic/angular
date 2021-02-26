@@ -1,0 +1,39 @@
+.listBody{
+    width: 500px; /* or however wide you want it */
+    margin: 0 auto;
+  }
+  
+  .header-align-center {
+    text-align: center;
+    justify-content: flex-end;
+  }
+  
+  th{
+    font-size: large;
+  }
+  
+  td{
+    text-align: center;
+    font-size: medium;
+    word-wrap: break-word;
+  }
+    
+  button {
+      margin: 16px 8px;
+  }
+
+  h1{
+      text-align: center;
+  }
+
+  table{
+      margin: 0 auto;
+      width: 500px;
+      table-layout: fixed;
+  }
+
+  .hide{
+    display: none;
+  }
+ 
+ 

@@ -1,0 +1,140 @@
+<div class="container">
+    <mat-card class="main-card">
+    <form [formGroup]="clientForm"  (ngSubmit)="onSubmit()"  autocomplete="off">
+        <div class='form-group'>   
+             <h1 class="text-center text-primary">Update</h1>
+        </div>
+         
+        <div class="form-group">   
+            <label></label>     
+            <button id="delete-button" class="form-button"  mat-raised-button color="warn" (click)="ondelete()" type="button">Delete profile</button>      
+            <div class="error">
+            </div>       
+        </div>
+        
+        <div class="form-group">
+            
+            <div class="error" *ngIf="isControlInvalid('firstName')">
+                <p>First name cannot be empty</p>
+                <p>First name max length is 30</p>
+            </div>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput required  type="text" name="firstName"  formControlName="firstName" >
+            </mat-form-field>
+    
+        </div>
+    
+        <div class="form-group">
+            <div class="error" *ngIf="isControlInvalid('lastName')">
+                <p>Last name cannot be empty</p>
+                <p>Last name max length is 30</p>
+            </div>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input matInput required  type="text" name="lastName"  formControlName="lastName" >
+            </mat-form-field>
+    
+        </div>
+    
+        <div class="form-group">
+    
+            <div class="error" *ngIf="isControlInvalid('email')">
+                <p>Email cannot be empty</p>
+                <p>Email has to match '..@..' format</p>
+                <p>Email max length is 50</p>
+            </div>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput required  type="text" name="email"  formControlName="email">
+            </mat-form-field>
+    
+        </div>
+    
+        <div class="form-group">
+    
+            <div class="error" *ngIf="isControlInvalid('phoneNumber')">
+                <p>Phone number cannot be empty</p>
+                <p>Phone number must have exactly 12 digits</p>
+            </div>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput required  type="text" name="phoneNumber"  formControlName="phoneNumber" >
+            </mat-form-field>
+    
+        </div>
+        
+        <div class="form-group">   
+           <label></label>     
+           <button id="register-button" class="form-button" mat-raised-button color="primary"  type="submit">Update</button>                 
+           <button id="cancel-button" class="form-button"  mat-raised-button color="warn" (click)="cancel()" type="button">Cancel</button>
+           <div class="error">   
+           </div>       
+       </div>
+    </form>
+    </mat-card>
+    </div>
+    
+ 
+ 
+ 
+<!--  
+ <div class="container">
+    <mat-card class="main-card">
+    <form [formGroup]="clientForm"  (ngSubmit)="onSubmit()"  autocomplete="off">
+        <div class='form-group'>   
+             <h1 class="text-center text-primary">Update profile</h1>
+        </div>
+        <div class="form-group">
+            <label>First name</label>
+        <input type="text" name="firstname" formControlName="firstName" />
+        <div class="error" *ngIf="isControlInvalid('firstName')">
+            <p>First name cannot be empty</p>
+            <p>First name max length is 30</p>
+           </div>
+        </div>
+        <div class="form-group">
+            <label>Last name</label>
+        <input type="text" name="lastname" formControlName="lastName"/>
+        <div class="error" *ngIf="isControlInvalid('lastName')">
+            <p>Last name cannot be empty</p>
+            <p>Last name max length is 30</p>
+           </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+        <input type="text" name="email" formControlName="email"/>
+        <div class="error" *ngIf="isControlInvalid('email')">
+            <p>Email cannot be empty</p>
+            <p>Email has to match '..@..' format</p>
+            <p>Email max length is 50</p>
+           </div>
+        </div>
+        <div class="form-group">
+            <label>Phone number</label>
+        <input type="text" name="phonenumber" formControlName="phoneNumber"/>
+        <div class="error" *ngIf="isControlInvalid('phoneNumber')">
+            <p>Phone number cannot be empty</p>
+            <p>Phone number must have exactly 12 digits</p>
+           </div>
+        </div>
+        <div class="form-group">   
+                 <label></label>     
+                <button id="register-button" class="form-button" mat-raised-button color="primary"  type="submit">Update</button>                 
+                <button id="cancel-button" class="form-button"  mat-raised-button color="warn" (click)="cancel()" type="button">Cancel</button>
+            <div class="error">   
+        </div>       
+        </div>
+        <div class="form-group">   
+            <label></label>     
+            <button id="delete-button" class="form-button"  mat-raised-button color="warn" (click)="ondelete()" type="button">Delete profile</button>      
+       <div class="error">
+       </div>       
+   </div>
+    </form>
+    </mat-card>
+    </div>  -->

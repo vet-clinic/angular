@@ -1,0 +1,39 @@
+<div class="animal_card">    
+    <mat-card *ngIf="animal"       
+    [@active]="activeAnimal ? 'active' : '*'" 
+    (click)="selectAnimal()" matRipple>
+        <div class="card" >
+            <div class="img_container" >
+                <img *ngIf="!animal.photo"
+                    src="assets/img/unknownAnimals.png"
+                    [alt]="animal.name"
+                    class="img">
+                <img *ngIf="animal.photo" [src]="animal?.photo"
+                    [alt]="animal.name"
+                    class="img">
+            </div>
+            <mat-card-content>
+                <div class="content" [ngClass]="activeAnimal ? 'color_white' : ''" >
+                    <div class="animalName">
+                        {{animal.name}}
+                    </div>                
+                    <div class="animalType">
+                        {{animal.animalTypeName}}
+                    </div>   
+                </div>                
+            </mat-card-content> 
+        </div>        
+    </mat-card>
+    <div *ngIf='closedInformation' class="delete" (click)="openAssessDialog()">
+        <button mat-mini-fab color="" class="delete_btn"
+            aria-label="Example icon button with a heart icon">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+    <div *ngIf='closedInformation' class="settings" (click)="goToSettings()">
+        <button mat-mini-fab [color]="activeAnimal ? '' : 'primary'"
+            class="settings_btn" aria-label="Example icon button with a heart icon">
+            <mat-icon [color]="activeAnimal ? 'primary' : ''">settings</mat-icon>
+        </button>        
+    </div>
+</div>
